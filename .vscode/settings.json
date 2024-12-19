@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/dba6eb24-dd6d-4e36-abdb-6884842053d4/resourceGroups/NunuElectronics_group/providers/Microsoft.Web/sites/NunuElectronics",
+    "appService.deploySubpath": "dist"
+}
