@@ -3,13 +3,6 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { TemplateComponent } from '../components/template/template.component';
 import { HomepageComponent } from '../components/homepage/homepage.component';
 import { NavbarComponent } from "../components/navbar/navbar.component";
-<<<<<<< HEAD
-
-=======
->>>>>>> Cristi_1
-
-
-
 @Component({
   selector: 'app-root',
   standalone: true,
