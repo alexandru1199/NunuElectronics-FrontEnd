@@ -9,11 +9,7 @@ import { ContactPageComponent } from '../components/contact-page/contact-page.co
 export const routes: Routes = [
     {path:'template',component:TemplateComponent},
     {path:'navbar',component:NavbarComponent},
-<<<<<<< HEAD
-    {path:'contact'}
-=======
-    {path:'contact',component:ContactPageComponent},
->>>>>>> Cristi_1
+    {path:'contact'},
     {path:'',component:HomepageComponent},
     {path:'**',component:ErrorPageComponent},
     
