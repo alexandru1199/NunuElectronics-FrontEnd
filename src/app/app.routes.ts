@@ -7,6 +7,7 @@ import { NavbarComponent } from '../components/navbar/navbar.component';
 export const routes: Routes = [
     {path:'template',component:TemplateComponent},
     {path:'navbar',component:NavbarComponent},
+    {path:'contact'}
     {path:'',component:HomepageComponent},
     
 
