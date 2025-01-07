@@ -12,7 +12,7 @@ export const routes: Routes = [
     {path:'navbar',component:NavbarComponent},
     {path:'contact',component:ContactPageComponent},
     {path:'',component:HomepageComponent},
-    {path:'produse',component:ProduseComponent},
+    {path:'products',component:ProduseComponent},
     {path:'**',component:ErrorPageComponent},
     
 
