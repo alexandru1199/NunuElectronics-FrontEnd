@@ -8,7 +8,7 @@ import { Product } from '../../models/Product';
   })
 export class ProduseService {
     constructor(private http: HttpClient) { }
-    produseUrl = APP_CONSTANTS.BACKEND_BASE_URL+"/Product";
+    produseUrl = APP_CONSTANTS.BACKEND_BASE_URL_PROD+"/Product";
     getServices(){
         return this.http.get<Product[]>(this.produseUrl);
     }
