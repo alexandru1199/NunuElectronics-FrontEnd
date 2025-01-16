@@ -5,4 +5,5 @@ export class Product {
   stockQuantity!: number;
   createdDate?: Date;
   image?:string;
+  description?:string;
 }

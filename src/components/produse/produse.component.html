@@ -1,16 +1,10 @@
-<!-- product-list.component.html -->
-<body>
-  <div class="product-container">
-    <div *ngFor="let product of Products" class="product-card">
-      <div class="product-details">
-        <h3>{{ product.productName }}</h3>
-        <p>Product ID: {{ product.productId }}</p>
-        <p>Price: ${{ product.price }}</p>
-        <p>Stock: {{ product.stockQuantity }}</p>
-        <p>Created: {{ product.createdDate | date: 'mediumDate' }}</p>
-
-        <img [src]="product.image" class="product-img">
-      </div>
+<div class="product-container">
+  <div *ngFor="let product of Products" class="product-card">
+    <img [src]="product.image" class="product-img" alt="{{ product.productName }}">
+    <div class="product-details">
+      <h3>{{ product.productName }}</h3>
+      <p class="price">${{ product.price }}</p>
+      <p class="description">{{ product.description }}</p>
     </div>
   </div>
-</body>
+</div>

@@ -90,8 +90,9 @@ header p {
 }
 
 .product img {
-    max-width: 100%;
-    height: auto;
+    max-width: 100%;  /* Imaginea nu va depăși containerul */
+    height: 150px;    /* Înălțimea forțată */
+    object-fit: cover; /* Asigură că imaginea se încadrează bine */
     border-radius: 10px;
 }
 

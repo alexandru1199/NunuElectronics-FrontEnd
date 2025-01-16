@@ -15,6 +15,7 @@ export class ProduseComponent implements OnInit {
   constructor(private produseService: ProduseService) { }
 
   ngOnInit(): void {
+    const startTime = performance.now();
     this.produseService.getServices().subscribe(
       (data: any) => {  // Ensuring type safety
         this.Products.push(...data); // Assigning directly since it's already an array
@@ -22,6 +23,6 @@ export class ProduseComponent implements OnInit {
       (error) => {
         console.error('Error fetching products:', error);
       }
-    );
+    );  
   }
 }

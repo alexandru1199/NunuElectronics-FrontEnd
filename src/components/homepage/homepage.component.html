@@ -14,20 +14,16 @@
 <section class="products-section" id="products">
   <h3>Our Best Sellers</h3>
   <div class="products">
-    <div class="product">
-      <img src="https://www.mobafire.com/images/champion/skins/landscape/nunu-amp-willump-fright-night-762x.jpg" alt="Smart Speaker">
-      <h4>Nunu Smart Speaker</h4>
-      <p>Your personal assistant for a connected home.</p>
+    <div class="product" *ngFor="let product of Products">
+      <img [src]="product.image" [alt]="product.productName">
+      <h4>{{ product.productName }}</h4>
+      <p>{{product.description}}</p> <!-- Descriere fixă -->
       <a href="#" class="btn">Buy Now</a>
-    </div>
-    <div class="product">
-      <img src="https://www.mobafire.com/images/champion/skins/landscape/nunu-amp-willump-cosmic-paladins-762x.jpg" alt="Guiding Light Lamp">
-      <h4>Guiding Nunu Lamp</h4>
-      <p>A soothing light to inspire every moment.</p>
-      <a href="#" class="btn">Buy Now</a>
+      
     </div>
   </div>
 </section>
+
 
 <section class="about-section" id="about">
   <h3>Why Nunu Electronics?</h3>
@@ -38,3 +34,4 @@
   <p>&copy; 2024 Nunu Electronics. All rights reserved.</p>
   <p><a href="mailto:support@nunu.com">Contact Us</a> | Phone: +1 800 555 6789</p>
 </footer>
+<p>test</p>
