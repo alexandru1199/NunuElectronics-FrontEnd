@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../../models/Product';
 import { ProduseService } from '../produse/produse.service';
 import { CommonModule } from '@angular/common';
+import { RouterLink, RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-homepage',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterOutlet,RouterLink],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.scss'
 })

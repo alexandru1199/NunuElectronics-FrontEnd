@@ -5,6 +5,8 @@ import { NavbarComponent } from '../components/navbar/navbar.component';
 import { ErrorPageComponent } from '../components/error-page/error-page.component';
 import { ContactPageComponent } from '../components/contact-page/contact-page.component';
 import { ProduseComponent } from '../components/produse/produse.component';
+import { CartComponent } from '../components/cart/cart.component';
+import { ThankYouComponent } from '../components/thank-you/thank-you.component';
 
 
 export const routes: Routes = [
@@ -13,6 +15,8 @@ export const routes: Routes = [
     {path:'contact',component:ContactPageComponent},
     {path:'',component:HomepageComponent},
     {path:'products',component:ProduseComponent},
+    {path:'cart',component:CartComponent},
+    {path:'thankyou',component:ThankYouComponent},
     {path:'**',component:ErrorPageComponent},
     
 

@@ -1,10 +1,17 @@
 <nav class="navbar">
   <div class="container">
-   
     <ul class="nav-links">
       <li><a routerLink="/">Home</a></li>
       <li><a routerLink="/contact">Contact</a></li>
-      <li><a routerLink="/products">Products</a></li>        
+      <li><a routerLink="/products">Products</a></li>
     </ul>
+
+    <!-- Coșul de cumpărături la dreapta cu text -->
+    <div class="cart-container">
+      <a routerLink="/cart">
+      <span class="cart-text">Cart</span>
+        <img src="assets/cart-icon.png" alt="Cart" class="cart-icon">
+      </a>
+    </div>
   </div>
 </nav>

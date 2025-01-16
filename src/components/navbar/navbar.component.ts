@@ -9,11 +9,5 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
-  isMenuOpen: boolean = false;
-  toggleMenu(): void {
-    this.isMenuOpen = !this.isMenuOpen;
-  }
-  test():void{
-    console.log("CLICK!")
-  }
+
 }

@@ -1,42 +1,71 @@
 /* Resetare de bază */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Stilizare Navbar */
-  .navbar {
-    background-color: #333;
-    color: #fff;
-    height: 60px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .container {
-    width: 100%;
-    margin-left: 20px; /* Mută conținutul spre stânga */
-  }
-  
-  .nav-links {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .nav-links li {
-    margin-right: 20px; /* Spațiere între linkuri */
-  }
-  
-  .nav-links a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  
-  .nav-links a:hover {
-    color: #00bcd4;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Stilizare Navbar */
+.navbar {
+  background-color: #333;
+  color: #fff;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin-right: 20px; /* Spațiere între linkuri */
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #00bcd4;
+}
+
+/* Aliniere coș de cumpărături la dreapta */
+.cart-container {
+  margin-left: auto; /* Împinge containerul spre dreapta */
+  display: flex;
+  align-items: center;
+}
+
+.cart-text {
+  color: white;
+  font-size: 16px;
+  margin-right: 8px; /* Spațiere între text și iconiță */
+  display: inline-block;
+  vertical-align: middle; /* Aliniază vertical textul */
+}
+
+.cart-icon {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  vertical-align: middle; /* Aliniază vertical iconița față de text */
+}
+
+.cart-icon:hover {
+  transform: scale(1.1);
+}
