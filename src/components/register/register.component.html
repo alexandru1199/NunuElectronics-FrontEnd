@@ -1,0 +1,22 @@
+<div class="login-container">
+    <h2>Inregistrare</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="username">User</label>
+        <input id="username" type="username" formControlName="username" />
+        <div *ngIf="registerForm.controls['username'].invalid && registerForm.controls['username'].touched">
+          username invalid
+        </div>
+      </div>
+      <div>
+        <label for="password">Parolă</label>
+        <input id="password" type="password" formControlName="password" />
+        <div *ngIf="registerForm.controls['password'].invalid && registerForm.controls['password'].touched">
+          Parola trebuie să aibă cel puțin 6 caractere
+        </div>
+      </div>
+      <button type="submit" [disabled]="registerForm.invalid">Autentificare</button>
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+    </form>
+  </div>
+  

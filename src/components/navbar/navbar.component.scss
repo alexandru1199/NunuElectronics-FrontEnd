@@ -30,7 +30,7 @@
 }
 
 .nav-links li {
-  margin-right: 20px; /* Spațiere între linkuri */
+  margin-right: 20px;
 }
 
 .nav-links a {
@@ -43,19 +43,20 @@
   color: #00bcd4;
 }
 
-/* Aliniere coș de cumpărături la dreapta */
+/* Coș de cumpărături */
 .cart-container {
-  margin-left: auto; /* Împinge containerul spre dreapta */
+  margin-left: auto;
   display: flex;
   align-items: center;
+  position: relative; /* Necesită pentru poziționare badge */
 }
 
 .cart-text {
   color: white;
   font-size: 16px;
-  margin-right: 8px; /* Spațiere între text și iconiță */
+  margin-right: 8px;
   display: inline-block;
-  vertical-align: middle; /* Aliniază vertical textul */
+  vertical-align: middle;
 }
 
 .cart-icon {
@@ -63,9 +64,23 @@
   height: 35px;
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
-  vertical-align: middle; /* Aliniază vertical iconița față de text */
+  vertical-align: middle;
 }
 
 .cart-icon:hover {
   transform: scale(1.1);
+}
+
+.cart-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1;
 }

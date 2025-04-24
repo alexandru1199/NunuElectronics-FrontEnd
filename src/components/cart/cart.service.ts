@@ -1,17 +1,20 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
   private cartItems: any[] = [];
+  private cartItemsSubject = new BehaviorSubject<any[]>([]);
+  cartItems$ = this.cartItemsSubject.asObservable();
 
   constructor() {
-    // Verificăm dacă suntem în browser înainte de a accesa localStorage
     if (typeof window !== 'undefined' && window.localStorage) {
       const savedCart = localStorage.getItem('cartItems');
       if (savedCart) {
         this.cartItems = JSON.parse(savedCart);
+        this.cartItemsSubject.next(this.cartItems); // emit valorea inițială
       }
     }
   }
@@ -40,10 +43,10 @@ export class CartService {
     this.saveCart();
   }
 
-  saveCart() {
+ saveCart() {
     if (typeof window !== 'undefined' && window.localStorage) {
       localStorage.setItem('cartItems', JSON.stringify(this.cartItems));
     }
+    this.cartItemsSubject.next(this.cartItems); // notificăm toți abonații
   }
- 
 }

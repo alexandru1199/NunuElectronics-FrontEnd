@@ -9,7 +9,7 @@ import { CartService } from '../cart/cart.service';
 @Component({
   selector: 'app-produse',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink],
+  imports: [CommonModule],
   templateUrl: './produse.component.html',
   styleUrls: ['./produse.component.scss']
 })

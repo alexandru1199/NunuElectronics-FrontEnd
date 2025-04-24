@@ -4,6 +4,7 @@
       <li><a routerLink="/">Home</a></li>
       <li><a routerLink="/contact">Contact</a></li>
       <li><a routerLink="/products">Products</a></li>
+      <li><a routerLink="/login">Login</a></li>
     </ul>
 
     <!-- Coșul de cumpărături la dreapta cu text -->
@@ -11,6 +12,8 @@
       <a routerLink="/cart">
       <span class="cart-text">Cart</span>
         <img src="assets/cart-icon.png" alt="Cart" class="cart-icon">
+        <span class="cart-badge" *ngIf="cartCount > 0">{{ cartCount }}</span>
+       
       </a>
     </div>
   </div>

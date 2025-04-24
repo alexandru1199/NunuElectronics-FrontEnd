@@ -7,6 +7,8 @@ import { ContactPageComponent } from '../components/contact-page/contact-page.co
 import { ProduseComponent } from '../components/produse/produse.component';
 import { CartComponent } from '../components/cart/cart.component';
 import { ThankYouComponent } from '../components/thank-you/thank-you.component';
+import { LoginComponent } from '../components/login/login.component';
+import { RegisterComponent } from '../components/register/register.component';
 
 
 export const routes: Routes = [
@@ -17,6 +19,8 @@ export const routes: Routes = [
     {path:'products',component:ProduseComponent},
     {path:'cart',component:CartComponent},
     {path:'thankyou',component:ThankYouComponent},
+    {path:'login',component:LoginComponent},
+    {path:'register',component:RegisterComponent},
     {path:'**',component:ErrorPageComponent},
     
 

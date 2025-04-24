@@ -1,33 +1,38 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CartService } from './cart.service';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router'; // Import Router
+import { Subscription } from 'rxjs'; // ✅
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-cart',
-  imports:[CommonModule],
-  standalone:true,
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss']
 })
-export class CartComponent implements OnInit {
+export class CartComponent implements OnInit, OnDestroy {
   cartItems: any[] = [];
+  private sub!: Subscription;
 
-  constructor(private cartService: CartService,
-    private router: Router
-  ) { }
+  constructor(private cartService: CartService, private router: Router) {}
 
   ngOnInit(): void {
-    this.cartItems = this.cartService.getCartItems();
+    this.sub = this.cartService.cartItems$.subscribe((items: any[]) => {
+      this.cartItems = items;
+    });
+  }
+
+  ngOnDestroy(): void {
+    if (this.sub) this.sub.unsubscribe(); // 🔁 curățăm când componenta dispare
   }
 
   removeFromCart(index: number): void {
     this.cartService.removeFromCart(index);
-    this.cartItems = this.cartService.getCartItems();
   }
 
   clearCart(): void {
     this.cartService.clearCart();
-    this.cartItems = this.cartService.getCartItems();
   }
 
   getTotal(): string {
@@ -35,21 +40,20 @@ export class CartComponent implements OnInit {
     return total.toFixed(2);
   }
 
-  // Crește cantitatea produsului
   increaseQuantity(index: number): void {
     this.cartItems[index].quantity += 1;
+    this.cartService.saveCart(); // 👈 actualizezi localStorage și emiți
   }
 
-  // Scade cantitatea produsului
   decreaseQuantity(index: number): void {
     if (this.cartItems[index].quantity > 1) {
       this.cartItems[index].quantity -= 1;
+      this.cartService.saveCart(); // 👈 la fel și aici
     }
   }
+
   onCheckout(): void {
-    // Optional: Add logic to handle order placement here (e.g., save order to the server)
-    // After handling checkout, navigate to the Thank You page
-    this.cartService.clearCart(); // Această metodă se ocupă și de Local Storage
+    this.cartService.clearCart();
     this.router.navigate(['/thankyou']);
   }
 }
