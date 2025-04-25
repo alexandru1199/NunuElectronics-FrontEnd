@@ -16,8 +16,8 @@ Products: Product[] = []
   ngOnInit(): void {
     this.produseService.getServices().subscribe(
       (data: Product[]) => { 
-        if (data.length > 2) {
-          this.Products = data.sort(() => 0.5 - Math.random()).slice(0, 2);
+        if (data.length > 6) {
+          this.Products = data.sort(() => 0.5 - Math.random()).slice(0, 6);
         } else {
           this.Products = data; // Dacă sunt mai puțin de 2 produse, le ia pe toate
         }

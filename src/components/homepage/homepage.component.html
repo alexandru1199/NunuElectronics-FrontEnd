@@ -1,34 +1,19 @@
-
-<header>
-  <h1>Nunu Electronics</h1>
-  <p>Empowering Technology, Guided by Faith</p>
-</header>
-
 <section class="hero">
-  <h2>Innovating Today, Empowering Tomorrow</h2>
-  <p>Discover cutting-edge electronics designed to simplify your life and guided by higher values.</p>
-  <a class="btn" routerLink="/products">Products</a>
-
-  <a href="#about" class="btn">Learn More</a>
+  <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Nunu_0.jpg" alt="Nunu Electronics Banner">
+  <h2>Nunu<span class="light-text">Electronics</span></h2>
+  <a class="btn" href="#products">Browse</a>
 </section>
 
 <section class="products-section" id="products">
-  <h3>Our Best Sellers</h3>
+  <h3>Our Products</h3>
   <div class="products">
     <div class="product" *ngFor="let product of Products">
       <img [src]="product.image" [alt]="product.productName">
       <h4>{{ product.productName }}</h4>
-      <p>{{product.description}}</p> <!-- Descriere fixă -->
+      <p>{{ product.description }}</p>
       <a href="#" class="btn">Buy Now</a>
-      
     </div>
   </div>
-</section>
-
-
-<section class="about-section" id="about">
-  <h3>Why Nunu Electronics?</h3>
-  <p>We blend innovation with purpose, creating products inspired by integrity and faith.</p>
 </section>
 
 <footer>
