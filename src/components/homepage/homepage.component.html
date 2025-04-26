@@ -11,7 +11,7 @@
       <img [src]="product.image" [alt]="product.productName">
       <h4>{{ product.productName }}</h4>
       <p>{{ product.description }}</p>
-      <a href="#" class="btn">Buy Now</a>
+      <a (click)="addToCart(product)" href="#" class="btn">Buy Now</a>
     </div>
   </div>
 </section>

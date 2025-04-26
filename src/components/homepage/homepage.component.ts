@@ -3,6 +3,7 @@ import { Product } from '../../models/Product';
 import { ProduseService } from '../produse/produse.service';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { CartService } from '../cart/cart.service';
 @Component({
   selector: 'app-homepage',
   standalone: true,
@@ -12,7 +13,9 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 })
 export class HomepageComponent  implements OnInit{
 Products: Product[] = []
-  constructor(private produseService: ProduseService) { }
+  constructor(private produseService: ProduseService,
+     private cartService: CartService
+  ) { }
   ngOnInit(): void {
     this.produseService.getServices().subscribe(
       (data: Product[]) => { 
@@ -27,6 +30,8 @@ Products: Product[] = []
       }
     );
   }
-  
+  addToCart(product: Product){
+    this.cartService.addToCart(product);
+  }
 }
 
