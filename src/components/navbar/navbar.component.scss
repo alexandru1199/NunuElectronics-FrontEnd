@@ -1,41 +1,46 @@
-/* Resetare de bază */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Stilizare Navbar */
 .navbar {
   background-color: #333;
-  color: #fff;
-  height: 60px;
+  height: 70px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 0 20px;
 }
 
 .container {
+  width: 100%;
   display: flex;
   align-items: center;
-  width: 100%;
+  justify-content: space-between;
+}
+
+.left-side {
+  display: flex;
+  align-items: center;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  margin: 0;
-  padding: 0;
+  align-items: center;
+  gap: 25px;
 }
 
 .nav-links li {
-  margin-right: 20px;
+  display: flex;
+  align-items: center;
 }
 
 .nav-links a {
   color: #fff;
   text-decoration: none;
+  font-size: 18px;
   transition: color 0.3s ease;
 }
 
@@ -43,20 +48,45 @@
   color: #00bcd4;
 }
 
-/* Coș de cumpărături */
-.cart-container {
-  margin-left: auto;
+/* Icon profil */
+.profile-icon img.user-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #00bcd4;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+}
+
+.profile-icon img.user-icon:hover {
+  transform: scale(1.1);
+  border-color: #fff;
+}
+
+/* Dreapta - Cart */
+.right-side {
   display: flex;
   align-items: center;
-  position: relative; /* Necesită pentru poziționare badge */
+}
+
+.cart-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  position: relative;
 }
 
 .cart-text {
-  color: white;
   font-size: 16px;
   margin-right: 8px;
-  display: inline-block;
-  vertical-align: middle;
+}
+
+.cart-icon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .cart-icon {
@@ -64,7 +94,6 @@
   height: 35px;
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
-  vertical-align: middle;
 }
 
 .cart-icon:hover {
@@ -73,14 +102,12 @@
 
 .cart-badge {
   position: absolute;
-  top: 0;
-  right: 0;
-  transform: translate(50%, -50%);
+  top: -5px;
+  right: -5px;
   background-color: red;
   color: white;
   border-radius: 50%;
   padding: 2px 6px;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: bold;
-  line-height: 1;
 }

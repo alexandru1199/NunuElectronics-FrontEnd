@@ -9,6 +9,8 @@ import { CartComponent } from '../components/cart/cart.component';
 import { ThankYouComponent } from '../components/thank-you/thank-you.component';
 import { LoginComponent } from '../components/login/login.component';
 import { RegisterComponent } from '../components/register/register.component';
+import { OrderDetailsComponent } from '../components/orderdetails/orderdetails.component';
+import { ProfileComponent } from '../components/profile/profile.component';
 
 
 export const routes: Routes = [
@@ -21,7 +23,9 @@ export const routes: Routes = [
     {path:'thankyou',component:ThankYouComponent},
     {path:'login',component:LoginComponent},
     {path:'register',component:RegisterComponent},
+    {path:'orderdetails',component:OrderDetailsComponent},
+    {path:'profile',component:ProfileComponent},
     {path:'**',component:ErrorPageComponent},
-    
+
 
 ];

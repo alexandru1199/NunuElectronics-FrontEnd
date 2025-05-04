@@ -1,19 +1,31 @@
 <nav class="navbar">
   <div class="container">
-    <ul class="nav-links">
-      <li><a routerLink="/">Home</a></li>
-      <li><a routerLink="/contact">Contact</a></li>
-      <li><a routerLink="/products">Products</a></li>
-      <li><a routerLink="/login">Login</a></li>
-    </ul>
+    <div class="left-side">
+      <ul class="nav-links">
+        <li *ngIf="isLoggedIn" class="profile-icon">
+          <a routerLink="/profile">
+            <!-- Afișează imaginea de profil din backend -->
+            <img [src]="profileImage" alt="Profile" class="user-icon">
+          </a>
+        </li>
 
-    <!-- Coșul de cumpărături la dreapta cu text -->
-    <div class="cart-container">
-      <a routerLink="/cart">
-      <span class="cart-text">Cart</span>
-        <img src="assets/cart-icon.png" alt="Cart" class="cart-icon">
-        <span class="cart-badge" *ngIf="cartCount > 0">{{ cartCount }}</span>
-       
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/contact">Contact</a></li>
+        <li><a routerLink="/products">Products</a></li>
+
+        <li *ngIf="!isLoggedIn">
+          <a routerLink="/login">Login</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="right-side">
+      <a routerLink="/cart" class="cart-link">
+        <span class="cart-text">Cart</span>
+        <div class="cart-icon-wrapper">
+          <img src="assets/cart-icon.png" alt="Cart" class="cart-icon">
+          <span class="cart-badge" *ngIf="cartCount > 0">{{ cartCount }}</span>
+        </div>
       </a>
     </div>
   </div>

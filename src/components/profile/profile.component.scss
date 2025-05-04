@@ -1,0 +1,64 @@
+.profile-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .profile-image {
+    position: relative;
+  }
+  
+  .user-icon {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .file-input {
+    display: none;
+  }
+  
+  .edit-btn,
+  .logout-btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+  
+  .edit-btn:hover,
+  .logout-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .order-history {
+    margin-top: 30px;
+  }
+  
+  .order-item {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .order-id,
+  .order-date,
+  .order-status,
+  .shipping-address,
+  .order-total {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+  

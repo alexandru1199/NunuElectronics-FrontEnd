@@ -1,0 +1,12 @@
+<div class="order-form-container">
+    <h2>Finalizează comanda</h2>
+    <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="ShippingAddress">Adresă de livrare</label>
+        <input id="ShippingAddress" formControlName="ShippingAddress" type="text" required />
+      </div>
+  
+      <button type="submit" [disabled]="orderForm.invalid">Trimite comanda</button>
+    </form>
+  </div>
+  

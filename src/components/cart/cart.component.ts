@@ -53,7 +53,6 @@ export class CartComponent implements OnInit, OnDestroy {
   }
 
   onCheckout(): void {
-    this.cartService.clearCart();
-    this.router.navigate(['/thankyou']);
+    this.router.navigate(['/orderdetails']);
   }
 }

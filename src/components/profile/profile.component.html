@@ -1,0 +1,37 @@
+<div class="profile-container">
+    <div class="profile-header">
+      <div class="profile-image">
+        <!-- Afișează imaginea de profil dacă există -->
+        <img *ngIf="imageBase64" [src]="imageBase64" alt="Profile Image" class="user-icon" />
+        
+        <!-- Input-ul de fișiere care se deschide când utilizatorul apasă pe butonul Edit -->
+        <input type="file" (change)="onFileSelected($event)" class="file-input" />
+  
+        <!-- Buton pentru selectarea imaginii de profil -->
+        <button class="edit-btn" (click)="triggerFileInput()">Edit Profile Image</button>
+      </div>
+  
+      <!-- Salutul pentru utilizator cu username -->
+      <h2 class="user-name">Hello, {{ username || 'User' }}</h2>
+      
+      <!-- Buton de logout -->
+      <button class="logout-btn" (click)="logout()">Logout</button>
+    </div>
+  
+    <div class="order-history">
+      <h3>Your Order History</h3>
+      
+      <!-- Mesajul când nu există comenzi -->
+      <div *ngIf="orderHistory.length === 0" class="no-orders">No orders found.</div>
+  
+      <!-- Listă comenzi -->
+      <div *ngFor="let order of orderHistory" class="order-item">
+        <div class="order-id">Order ID: {{ order.id }}</div>
+        <div class="order-date">Order Date: {{ order.purchaseDate | date:'yyyy-MM-dd HH:mm' }}</div>
+        <div class="order-status">Payment Status: {{ order.paymentStatus }}</div>
+        <div class="shipping-address">Shipping Address: {{ order.shippingAddress }}</div>
+        <div class="order-total">Total Price: ${{ order.totalPrice }}</div>
+      </div>
+    </div>
+  </div>
+  

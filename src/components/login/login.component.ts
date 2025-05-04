@@ -28,15 +28,14 @@ export class LoginComponent {
       this.loginService.login(this.loginForm.value).subscribe({
         next: (response) => {
           localStorage.setItem('token', response.token);
+          this.loginService.setLoginStatus(true); // <- notifică login-ul
           this.router.navigate(['']);
         },
         error: (err) => {
           this.errorMessage = 'Autentificare eșuată. Verificați datele!';
         }
       });
-    }
-  }
-
+    }}
   navigateToRegister(): void {
     this.router.navigate(['/register']);
   }
