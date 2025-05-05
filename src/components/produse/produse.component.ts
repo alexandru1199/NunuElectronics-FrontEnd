@@ -23,7 +23,7 @@ export class ProduseComponent implements OnInit {
 
   ngOnInit(): void {
     const startTime = performance.now();
-    this.produseService.getServices().subscribe(
+    this.produseService.getProducts().subscribe(
       (data: any) => {
         this.Products.push(...data);
       },

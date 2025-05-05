@@ -17,7 +17,7 @@ Products: Product[] = []
      private cartService: CartService
   ) { }
   ngOnInit(): void {
-    this.produseService.getServices().subscribe(
+    this.produseService.getProducts().subscribe(
       (data: Product[]) => { 
         if (data.length > 6) {
           this.Products = data.sort(() => 0.5 - Math.random()).slice(0, 6);

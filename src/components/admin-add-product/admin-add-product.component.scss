@@ -1,0 +1,144 @@
+/* General Form Styling */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  /* Heading */
+  h2 {
+    text-align: center;
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  /* Label Styling */
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 1rem;
+  }
+  
+  /* Input Field Styling */
+  input,
+  textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+  }
+  
+  /* Input Field Focus */
+  input:focus,
+  textarea:focus {
+    border-color: #6c5ce7;
+    outline: none;
+  }
+  
+  /* Textarea Styling */
+  textarea {
+    height: 100px;
+    resize: vertical; /* Allow resizing vertically only */
+  }
+  
+  /* File Input */
+  input[type="file"] {
+    display: none;
+  }
+  
+  /* File Input Label Styling */
+  .file-input-label {
+    display: block;
+    width: 100%; /* Make the button as wide as the form */
+    background-color: #6c5ce7;
+    color: white;
+    padding: 12px; /* Slightly bigger for consistency with other buttons */
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+  }
+  
+  /* Hover effect for file input label */
+  .file-input-label:hover {
+    background-color: #5a4bcf;
+  }
+  
+  /* Image Preview */
+  .image-preview {
+    width: 100%;
+    max-width: 300px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Button Styling */
+  button {
+    display: inline-block;
+    width: 100%;
+    padding: 12px;
+    background-color: #6c5ce7;
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Button Disabled Styling */
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  /* Button Hover Effect */
+  button:hover:enabled {
+    background-color: #5a4bcf;
+  }
+  
+  /* Loading Spinner Styling */
+  .loading {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #ff9800;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    form {
+      padding: 15px;
+    }
+  
+    h2 {
+      font-size: 1.2rem;
+    }
+  
+    label {
+      font-size: 0.9rem;
+    }
+  
+    button {
+      font-size: 1rem;
+    }
+  }
+  

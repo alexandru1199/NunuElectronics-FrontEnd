@@ -1,0 +1,33 @@
+<h2>Add New Product</h2>
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+  <label>Product Name:</label>
+  <input formControlName="productName" />
+
+  <label>Price:</label>
+  <input type="number" formControlName="price" />
+
+  <label>Stock:</label>
+  <input type="number" formControlName="stockQuantity" />
+
+  <label>Product Image URL:</label>
+  <input type="text" formControlName="image" />
+
+  <!-- Previzualizare imagine din URL -->
+  <div *ngIf="productForm.get('image')?.value">
+    <h4>Image Preview:</h4>
+    <img [src]="productForm.get('image')?.value" alt="Product Image Preview" class="image-preview"/>
+  </div>
+
+  <label>Description:</label>
+  <textarea formControlName="description"></textarea>
+
+  <label>Detailed Description:</label>
+  <textarea formControlName="detailedDescription"></textarea>
+
+  <label>Tag ID:</label>
+  <input type="number" formControlName="tagId" />
+
+  <button type="submit" [disabled]="productForm.invalid">
+    Add Product
+  </button>
+</form>
