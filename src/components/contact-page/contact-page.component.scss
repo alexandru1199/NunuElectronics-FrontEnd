@@ -1,35 +1,109 @@
-input[type=text], select, textarea {
-    width: 100%; 
-    padding: 12px; 
-    border: 1px solid #ccc; 
-    border-radius: 4px; 
-    box-sizing: border-box; 
-    margin-top: 6px; 
-    margin-bottom: 16px; 
-    resize: vertical 
-  }
-  
-  input[type=submit] {
-    background-color: #04AA6D;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
+/* Global styles */
+* {
+  font-family: 'Outfit', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  input[type=submit]:hover {
-    background-color: #45a049;
-  }
-  
+.form-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 
+/* Top background with splash art */
+.top-bg {
+  position: absolute;
+  top: 0;
+  height: 65vh;
+  width: 100%;
+  background-image: url('https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Nunu_1.jpg');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
 
-  .container {
-    background-image: url('https://cdnb.artstation.com/p/assets/images/images/014/896/871/large/x-train-.jpg?1546152626');
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat; 
-    width: 100%; 
-    height: 100%; 
+/* Wave separator */
+.wave-separator {
+  position: absolute;
+  top: calc(65vh - 75px);
+  left: 0;
+  width: 100%;
+  height: 150px;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.wave-separator svg {
+  width: 100%;
+  height: 150px;
+  display: block;
+}
+
+.wave-separator svg path {
+  fill: #c8c4d2;
+}
+
+/* Bottom background */
+.bottom-bg {
+  position: absolute;
+  top: 65vh;
+  height: 35vh;
+  width: 100%;
+  background-color: #c8c4d2;
+  z-index: 0;
+}
+
+/* Form container */
+.form-box {
+  position: relative;
+  z-index: 2;
+  background-color: #ddd;
+  padding: 40px;
+  border-radius: 20px;
+  width: 400px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  margin-top: 60px;
+}
+
+/* Input styles */
+input[type=text],
+input[type=email],
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+/* Submit button */
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+/* Header */
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
 }

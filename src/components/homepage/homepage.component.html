@@ -1,22 +1,35 @@
-<section class="hero">
-  <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Nunu_0.jpg" alt="Nunu Electronics Banner">
-  <h2>Nunu<span class="light-text">Electronics</span></h2>
-  <a class='btn' routerLink="/products">Browse</a>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nunu Electronics</title>
+  <!-- Link to Google Fonts for Outfit -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Add your other meta tags and links here -->
+</head>
+<body>
+  <section class="hero">
+    <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Nunu_0.jpg" alt="Nunu Electronics Banner">
+    <h2>Nunu<span class="light-text">Electronics</span></h2>
+    <a class='btn' routerLink="/products">Browse</a>
+  </section>
 
-<section class="products-section" id="products">
-  <h3>Our Products</h3>
-  <div class="products">
-    <div class="product" *ngFor="let product of Products">
-      <img [src]="product.image" [alt]="product.productName">
-      <h4>{{ product.productName }}</h4>
-      <p>{{ product.description }}</p>
-      <a (click)="addToCart(product)" href="#" class="btn">Buy Now</a>
+  <section class="products-section" id="products">
+    <h3>Our Products</h3>
+    <div class="products">
+      <div class="product" *ngFor="let product of Products">
+        <img [src]="product.image" [alt]="product.productName">
+        <h4>{{ product.productName }}</h4>
+        <p>{{ product.description }}</p>
+        <a (click)="addToCart(product)" href="#" class="btn">Buy Now</a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  <p>&copy; 2024 Nunu Electronics. All rights reserved.</p>
-  <p><a href="mailto:support@nunu.com">Contact Us</a> | Phone: +1 800 555 6789</p>
-</footer>
+  <footer>
+    <p>&copy; 2024 Nunu Electronics. All rights reserved.</p>
+    <p><a href="mailto:support@nunu.com">Contact Us</a> | Phone: +1 800 555 6789</p>
+  </footer>
+</body>
+</html>

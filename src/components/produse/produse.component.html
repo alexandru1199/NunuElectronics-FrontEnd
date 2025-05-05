@@ -1,11 +1,15 @@
-<div class="product-container">
+<!-- Be sure to include this in your index.html or main layout -->
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet" />
+
+<div class="product-container" style="font-family: 'Outfit', sans-serif;">
   <div *ngFor="let product of Products" class="product-card">
     <img [src]="product.image" class="product-img" alt="{{ product.productName }}">
     <div class="product-details">
-      <h3>{{ product.productName }}</h3>
-      <p class="price">${{ product.price }}</p>
-      <p class="description">{{ product.description }}</p>
-      <!-- Butonul de adăugare în coș -->
+      <div>
+        <h3>{{ product.productName }}</h3>
+        <p class="price">${{ product.price }}</p>
+        <p class="description">{{ product.description }}</p>
+      </div>
       <button class="add-to-cart-btn" (click)="addToCart(product)">Add to Cart!</button>
     </div>
   </div>

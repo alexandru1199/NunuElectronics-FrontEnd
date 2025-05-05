@@ -1,13 +1,30 @@
-<div class="container">
-    
-    <form action="action_page.php">
-  
+<div class="form-wrapper">
+  <!-- Top background image -->
+  <div class="top-bg"></div>
+
+  <!-- Wave separator overlapping the top background -->
+  <div class="wave-separator">
+    <svg viewBox="0 0 1440 150" preserveAspectRatio="none">
+      <path d="M0,40 C480,140 960,0 1440,80 L1440,150 L0,150 Z" fill="#c8c4d2"></path>
+    </svg>
+  </div>
+
+  <!-- Bottom background -->
+  <div class="bottom-bg"></div>
+
+  <!-- Form box -->
+  <div class="form-box">
+    <h2><span style="color: rgb(0, 0, 0);">Contact </span> <span style="color: rgb(202, 186, 92);">Us</span></h2>
+    <form>
       <label for="fname">First Name</label>
       <input type="text" id="fname" name="firstname" placeholder="Your name..">
-  
+
       <label for="lname">Last Name</label>
       <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-  
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Your email..">
+
       <label for="country">Country</label>
       <select id="country" name="country">
         <option value="australia">Australia</option>
@@ -15,7 +32,7 @@
         <option value="usa">USA</option>
         <option value="romania">Romania</option>
       </select>
-      
+
       <label for="problem">Problem</label>
       <select id="problem" name="problem">
         <option value="lag">Lag</option>
@@ -27,13 +44,10 @@
         <option value="weird">Something else</option>
       </select>
 
-      <label for="subject">Subject</label>
+      <label for="subject">Details</label>
       <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-  
+
       <input type="submit" value="Submit">
-  
     </form>
-    
-  </div> 
-  
-  
+  </div>
+</div>

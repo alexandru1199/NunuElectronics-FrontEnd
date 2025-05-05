@@ -1,9 +1,22 @@
-/* General Styles */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+/* Apply Outfit globally */
+html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
+  font-family: 'Outfit', sans-serif;
+  background: linear-gradient(135deg, #007BFF, #00BFFF);
+  background-attachment: fixed;
+}
+
+/* Page Wrapper */
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
 }
 
 /* Product Container */
@@ -11,24 +24,29 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  padding: 20px;
   justify-content: center;
+  background: transparent;
 }
 
 /* Product Card */
 .product-card {
-  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: rgba(139, 208, 230, 0.9);
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   padding: 15px;
   width: 220px;
+  height: 360px;
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
+  font-family: 'Outfit', sans-serif;
+}
 
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  }
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Product Image */
@@ -41,34 +59,46 @@ body {
 
 /* Product Details */
 .product-details {
-  h3 {
-    margin: 10px 0 5px;
-    color: #333;
-    font-size: 1.1rem;
-  }
-
-  .price {
-    font-size: 1rem;
-    font-weight: bold;
-    color: #27ae60;
-    margin-bottom: 5px;
-  }
-
-  .description {
-    font-size: 0.9rem;
-    color: #555;
-    white-space: normal; /* Permite textului să se încadreze pe mai multe linii */
-  }
-}
-.add-to-cart-btn {
-  background-color: #4CAF50; /* verde */
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
   margin-top: 10px;
+}
+
+.product-details h3 {
+  margin: 10px 0 4px;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.product-details .price {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #27ae60;
+  margin-bottom: 2px;
+  padding: 0;
+}
+
+.product-details .description {
+  font-size: 0.9rem;
+  color: #555;
+  white-space: normal;
+  margin-bottom: 10px;
+}
+
+/* Add to Cart Button */
+.add-to-cart-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 16px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  font-family: 'Outfit', sans-serif;
 }
 
 .add-to-cart-btn:hover {
