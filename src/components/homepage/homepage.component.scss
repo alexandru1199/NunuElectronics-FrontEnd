@@ -177,3 +177,24 @@ footer a {
   color: #b2ebf2;
   text-decoration: none;
 }
+
+/* Specific styles for .small-login-btn */
+section .small-login-btn {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 8px 16px;
+  background-color: #ff9800 !important; /* Use !important to override other styles */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem; /* Same font size as .login-btn */
+  transition: background-color 0.3s ease;
+}
+
+section .small-login-btn:hover {
+  background-color: #e68900 !important; /* Use !important to enforce hover effect */
+  text-decoration: none;
+}

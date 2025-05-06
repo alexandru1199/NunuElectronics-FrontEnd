@@ -11,7 +11,14 @@
       <img [src]="product.image" [alt]="product.productName">
       <h4>{{ product.productName }}</h4>
       <p>{{ product.description }}</p>
-      <a (click)="addToCart(product)" href="#" class="btn">Buy Now</a>
+
+      <!-- Dacă este logat -->
+      <a *ngIf="isLoggedIn" (click)="addToCart(product)" href="#" class="btn">Buy Now</a>
+
+      <!-- Dacă nu este logat -->
+      <a *ngIf="!isLoggedIn" routerLink="/login" class="btn small-login-btn">
+        Loghează-te pentru a adăuga în coș
+      </a>
     </div>
   </div>
 </section>

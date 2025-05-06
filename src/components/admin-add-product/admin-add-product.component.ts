@@ -31,14 +31,14 @@ export class AdminAddProductComponent implements OnInit {
     productName: ['', Validators.required],
     price: [0, [Validators.required, Validators.min(0)]],
     stockQuantity: [0, [Validators.required, Validators.min(0)]],
-    image: ['', [Validators.required, Validators.pattern(/^https?:\/\/.+\.(jpg|jpeg|png|webp|avif|gif|svg)$/i)]],
+    image: ['', [Validators.required]],
     description: ['', Validators.required],
     detailedDescription: ['', Validators.required],
     tagId: [1, Validators.required]
   });
 
   ngOnInit(): void {
-    console.log('✅ ngOnInit – suntem în browser:', this.isBrowser);
+    console.log('✅ ngOnInit – suntem în browser! :', this.isBrowser);
   }
 
   onSubmit() {

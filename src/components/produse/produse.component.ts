@@ -2,29 +2,35 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Product } from '../../models/Product';
 import { ProduseService } from './produse.service';
-
-import { RouterLink, RouterOutlet } from '@angular/router';
 import { CartService } from '../cart/cart.service';
-
+import { LoginService } from '../login/login.service';
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-produse',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterModule],
   templateUrl: './produse.component.html',
   styleUrls: ['./produse.component.scss']
 })
 export class ProduseComponent implements OnInit {
   Products: Product[] = [];
+  isLoggedIn: boolean = false;
 
   constructor(
     private produseService: ProduseService,
-    private cartService: CartService // Injectează serviciul CartService
-  ) { }
+    private cartService: CartService,
+    private loginService: LoginService
+  ) {}
 
   ngOnInit(): void {
-    const startTime = performance.now();
+    // Ascultăm statusul de autentificare
+    this.loginService.isLoggedIn$.subscribe(status => {
+      this.isLoggedIn = status;
+    });
+
+    // Obținem produsele
     this.produseService.getProducts().subscribe(
-      (data: any) => {
+      (data: Product[]) => {
         this.Products.push(...data);
       },
       (error) => {
@@ -34,9 +40,8 @@ export class ProduseComponent implements OnInit {
   }
 
   addToCart(product: Product) {
-    // Folosește serviciul CartService pentru a adăuga produsul în coș
     this.cartService.addToCart(product);
     console.log('Produsul a fost adăugat în coș:', product);
-    console.log(this.cartService.getCartItems())
+    console.log(this.cartService.getCartItems());
   }
 }

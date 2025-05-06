@@ -18,8 +18,7 @@
         </li>
       </ul>
     </div>
-
-    <div class="right-side">
+    <div class="right-side" *ngIf="isLoggedIn">
       <a routerLink="/cart" class="cart-link">
         <span class="cart-text">Cart</span>
         <div class="cart-icon-wrapper">

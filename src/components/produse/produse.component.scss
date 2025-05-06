@@ -104,3 +104,22 @@ html, body {
 .add-to-cart-btn:hover {
   background-color: #45a049;
 }
+.login-btn {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 8px 16px;
+  background-color: #ff9800;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #e68900;
+    text-decoration: none;
+  }
+}

@@ -1,6 +1,3 @@
-<!-- Be sure to include this in your index.html or main layout -->
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet" />
-
 <div class="product-container" style="font-family: 'Outfit', sans-serif;">
   <div *ngFor="let product of Products" class="product-card">
     <img [src]="product.image" class="product-img" alt="{{ product.productName }}">
@@ -10,7 +7,22 @@
         <p class="price">${{ product.price }}</p>
         <p class="description">{{ product.description }}</p>
       </div>
-      <button class="add-to-cart-btn" (click)="addToCart(product)">Add to Cart!</button>
+
+      <!-- Dacă utilizatorul este logat, afișează butonul de adăugare -->
+      <button 
+        class="add-to-cart-btn" 
+        *ngIf="isLoggedIn" 
+        (click)="addToCart(product)">
+        Add to Cart!
+      </button>
+
+      <!-- Dacă nu este logat, afișează butonul de login -->
+      <a 
+        *ngIf="!isLoggedIn" 
+        routerLink="/login" 
+        class="login-btn">
+        Loghează-te pentru a adăuga în coș
+      </a>
     </div>
   </div>
 </div>
