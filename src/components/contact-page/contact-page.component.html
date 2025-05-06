@@ -15,18 +15,18 @@
   <!-- Form box -->
   <div class="form-box">
     <h2><span style="color: rgb(0, 0, 0);">Contact </span> <span style="color: rgb(202, 186, 92);">Us</span></h2>
-    <form>
+    <form (ngSubmit)="onSubmit()">
       <label for="fname">First Name</label>
-      <input type="text" id="fname" name="firstname" placeholder="Your name..">
+      <input type="text" id="fname" [(ngModel)]="formData.fname" name="firstname" placeholder="Your name..">
 
       <label for="lname">Last Name</label>
-      <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+      <input type="text" id="lname" [(ngModel)]="formData.lname" name="lastname" placeholder="Your last name..">
 
       <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="Your email..">
+      <input type="email" id="email" [(ngModel)]="formData.email" name="email" placeholder="Your email..">
 
       <label for="country">Country</label>
-      <select id="country" name="country">
+      <select id="country" [(ngModel)]="formData.country" name="country">
         <option value="australia">Australia</option>
         <option value="canada">Canada</option>
         <option value="usa">USA</option>
@@ -34,7 +34,7 @@
       </select>
 
       <label for="problem">Problem</label>
-      <select id="problem" name="problem">
+      <select id="problem" [(ngModel)]="formData.problem" name="problem">
         <option value="lag">Lag</option>
         <option value="bugging">Bug</option>
         <option value="package">Package not arriving</option>
@@ -45,7 +45,7 @@
       </select>
 
       <label for="subject">Details</label>
-      <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+      <textarea id="subject" [(ngModel)]="formData.subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
 
       <input type="submit" value="Submit">
     </form>

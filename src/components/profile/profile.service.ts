@@ -7,8 +7,8 @@ import { APP_CONSTANTS } from '../../constants';
   providedIn: 'root'
 })
 export class ProfileService {
-  private userUrl = APP_CONSTANTS.BACKEND_BASE_URL_PROD + '/api/users';
-  
+  private userUrl = 
+  APP_CONSTANTS.BACKEND_BASE_URL_PROD + '/api/users';
   // Cream un BehaviorSubject pentru a emite imaginea actualizată
   private profileImageSubject = new BehaviorSubject<string | null>(null);
   profileImage$ = this.profileImageSubject.asObservable();
