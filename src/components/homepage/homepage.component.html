@@ -1,39 +1,41 @@
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap">
+</head>
 
-  <div class="page-container">
-    <main class="main-content">
-      <!-- Hero Section -->
-      <section class="hero">
-        <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Nunu_0.jpg" alt="Nunu Electronics Banner">
-        <h2>Nunu<span class="light-text">Electronics</span></h2>
-        <a class="btn" routerLink="/products">Browse</a>
-      </section>
+<div class="page-container">
+  <main class="main-content">
+    <!-- Hero Section -->
+    <section class="hero">
+      <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Nunu_0.jpg" alt="Nunu Electronics Banner">
+      <h2>Nunu<span class="light-text">Electronics</span></h2>
+      <a class="btn" routerLink="/products">Browse</a>
+    </section>
 
-      <!-- Products Section, only shown if Products exists and has items -->
-      <section class="products-section" *ngIf="Products.length > 0" id="products">
-        <h3>Our Products</h3>
-        <div class="products">
-          <div class="product" *ngFor="let product of Products">
-            <img [src]="product.image" [alt]="product.productName">
-            <h4>{{ product.productName }}</h4>
-            <p>{{ product.description }}</p>
+    <!-- Products Section, only shown if Products exists and has items -->
+    <section class="products-section" *ngIf="Products.length > 0" id="products">
+      <h3>Our Products</h3>
+      <div class="products">
+        <div class="product" *ngFor="let product of Products">
+          <img [src]="product.image" [alt]="product.productName">
+          <h4>{{ product.productName }}</h4>
+          <p>{{ product.description }}</p>
 
-            <a *ngIf="isLoggedIn" (click)="addToCart(product)" href="#" class="btn">Buy Now</a>
-            <a *ngIf="!isLoggedIn" routerLink="/login" class="btn small-login-btn">
-              Loghează-te pentru a adăuga în coș
-            </a>
-          </div>
+          <a *ngIf="isLoggedIn" (click)="addToCart(product)" href="#" class="btn">Buy Now</a>
+          <a *ngIf="!isLoggedIn" routerLink="/login" class="btn small-login-btn">
+            Loghează-te pentru a adăuga în coș
+          </a>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Optional: Fallback messages -->
-      <p *ngIf="Products && Products.length === 0" class="no-products-msg">No products available.</p>
-      <p *ngIf="!Products" class="loading-msg">Loading products...</p>
-    </main>
+    <!-- Optional: Fallback messages -->
+    <p *ngIf="Products && Products.length === 0" class="no-products-msg">No products available.</p>
+    <p *ngIf="!Products" class="loading-msg">Loading products...</p>
+  </main>
 
-    <!-- Footer always at the bottom -->
-    <footer class="footer">
-      <p>&copy; 2024 Nunu Electronics. All rights reserved.</p>
-      <p><a href="mailto:support@nunu.com">Contact Us</a> | Phone: +1 800 555 6789</p>
-    </footer>
-  </div>
-
+  <!-- Footer always at the bottom -->
+  <footer class="footer">
+    <p>&copy; 2024 Nunu Electronics. All rights reserved.</p>
+    <p><a href="mailto:support@nunu.com">Contact Us</a> | Phone: +1 800 555 6789</p>
+  </footer>
+</div>
