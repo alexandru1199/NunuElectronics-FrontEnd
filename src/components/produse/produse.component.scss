@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
 
-/* Apply Outfit globally */
+/* Global font and background */
 html, body {
   height: 100%;
   margin: 0;
@@ -104,6 +104,8 @@ html, body {
 .add-to-cart-btn:hover {
   background-color: #45a049;
 }
+
+/* Login Button */
 .login-btn {
   display: inline-block;
   margin-top: 0.5rem;
@@ -122,4 +124,39 @@ html, body {
     background-color: #e68900;
     text-decoration: none;
   }
+}
+
+/* Pagination Styles */
+.pagination-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.pagination button {
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  background-color: #f0f0f0;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.pagination button.active {
+  background-color: #333;
+  color: white;
+}
+
+.pagination button:hover:not(.active) {
+  background-color: #ddd;
 }

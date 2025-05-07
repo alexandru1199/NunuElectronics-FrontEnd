@@ -14,7 +14,11 @@ import { RouterModule } from '@angular/router';
 })
 export class ProduseComponent implements OnInit {
   Products: Product[] = [];
+  pagedProducts: Product[] = [];
   isLoggedIn: boolean = false;
+
+  currentPage: number = 1;
+  itemsPerPage: number = 12;
 
   constructor(
     private produseService: ProduseService,
@@ -23,20 +27,36 @@ export class ProduseComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Ascultăm statusul de autentificare
     this.loginService.isLoggedIn$.subscribe(status => {
       this.isLoggedIn = status;
     });
 
-    // Obținem produsele
     this.produseService.getProducts().subscribe(
       (data: Product[]) => {
-        this.Products.push(...data);
+        this.Products = data;
+        this.updatePagedProducts();
       },
       (error) => {
         console.error('Error fetching products:', error);
       }
     );
+  }
+
+  updatePagedProducts() {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    this.pagedProducts = this.Products.slice(startIndex, endIndex);
+  }
+
+  changePage(page: number) {
+    this.currentPage = page;
+    this.updatePagedProducts();
+  }
+
+  get totalPages(): number[] {
+    return Array(Math.ceil(this.Products.length / this.itemsPerPage))
+      .fill(0)
+      .map((_, i) => i + 1);
   }
 
   addToCart(product: Product) {

@@ -1,5 +1,7 @@
 <div class="product-container" style="font-family: 'Outfit', sans-serif;">
-  <div *ngFor="let product of Products" class="product-card">
+
+  <!-- Lista de produse -->
+  <div *ngFor="let product of pagedProducts" class="product-card">
     <img [src]="product.image" class="product-img" alt="{{ product.productName }}">
     <div class="product-details">
       <div>
@@ -8,7 +10,6 @@
         <p class="description">{{ product.description }}</p>
       </div>
 
-      <!-- Dacă utilizatorul este logat, afișează butonul de adăugare -->
       <button 
         class="add-to-cart-btn" 
         *ngIf="isLoggedIn" 
@@ -16,7 +17,6 @@
         Add to Cart!
       </button>
 
-      <!-- Dacă nu este logat, afișează butonul de login -->
       <a 
         *ngIf="!isLoggedIn" 
         routerLink="/login" 
@@ -25,4 +25,17 @@
       </a>
     </div>
   </div>
+
+  <!-- Paginare - poziționată întotdeauna sub produse -->
+  <div class="pagination-wrapper">
+    <div class="pagination">
+      <button 
+        *ngFor="let page of totalPages" 
+        (click)="changePage(page)"
+        [class.active]="page === currentPage">
+        {{ page }}
+      </button>
+    </div>
+  </div>
+
 </div>

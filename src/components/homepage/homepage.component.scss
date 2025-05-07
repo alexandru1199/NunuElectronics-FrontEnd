@@ -1,49 +1,25 @@
-/* Global Styles */
-body {
+/* Base setup */
+html, body {
+  height: 100%;
   margin: 0;
-  font-family: 'Outfit', Arial, sans-serif; /* Applied Outfit font */
-  background-color: #e9ecef;
-  overflow-x: hidden;
+  padding: 0;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 80%);
-  transform: translate(-50%, -50%);
-  animation: pulse 6s ease-in-out infinite;
-  z-index: -1;
+/* Flex column layout */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-body::after {
-  content: "";
-  position: fixed;
-  bottom: -150px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 1000px;
-  height: 500px;
-  background: radial-gradient(ellipse at center, rgba(255,255,255,0.2) 0%, transparent 70%);
-  border-radius: 50% 50% 0 0;
-  z-index: -1;
-  pointer-events: none;
+/* Main grows to fill available space */
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
-@keyframes pulse {
-  0%, 100% {
-    opacity: 0.1;
-    transform: translate(-50%, -50%) scale(1);
-  }
-  50% {
-    opacity: 0.25;
-    transform: translate(-50%, -50%) scale(1.2);
-  }
-}
-
+/* Hero Section */
 .hero {
   position: relative;
   width: 100%;
@@ -85,10 +61,12 @@ body::after {
   font-size: 1rem;
 }
 
+/* Products Section */
 .products-section {
   padding: 40px 20px;
   background-color: #2b9dd8;
   color: rgb(32, 38, 70);
+  flex: 1 0 auto;
 }
 
 .products {
@@ -149,52 +127,46 @@ body::after {
   box-sizing: border-box;
 }
 
-.fixed-buy-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #28a745;
-  color: white;
-  padding: 12px 20px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  z-index: 1000;
-  text-decoration: none;
-  font-weight: bold;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-footer {
+/* Footer */
+.footer {
   background-color: #164a69;
   color: white;
   text-align: center;
   padding: 20px;
+  width: 100%;
+  flex-shrink: 0;
 }
 
-footer a {
+.footer a {
   color: #b2ebf2;
   text-decoration: none;
 }
 
-/* Specific styles for .small-login-btn */
+/* Login Button */
 section .small-login-btn {
   display: inline-block;
   margin-top: 0.5rem;
   padding: 8px 16px;
-  background-color: #ff9800 !important; /* Use !important to override other styles */
+  background-color: #ff9800 !important;
   color: white;
   border: none;
   border-radius: 8px;
   text-align: center;
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.9rem; /* Same font size as .login-btn */
+  font-size: 0.9rem;
   transition: background-color 0.3s ease;
 }
 
 section .small-login-btn:hover {
-  background-color: #e68900 !important; /* Use !important to enforce hover effect */
+  background-color: #e68900 !important;
   text-decoration: none;
+}
+
+/* Optional loading and empty state styles */
+.no-products-msg,
+.loading-msg {
+  text-align: center;
+  padding: 40px;
+  color: #333;
 }
