@@ -24,35 +24,35 @@
   </div>
 
   <!-- Secțiunea pentru cupon -->
-<!-- Secțiunea pentru cupon -->
-<div *ngIf="cartItems.length > 0" class="coupon-container">
-  <input 
-    type="text" 
-    [(ngModel)]="couponCode" 
-    placeholder="Enter coupon code" 
-    class="coupon-input"
-    [readonly]="couponApplied" />
-  <button 
-    (click)="applyCoupon()" 
-    class="apply-coupon-btn" 
-    [disabled]="couponApplied">
-    Apply Coupon
-  </button>
+  <div *ngIf="cartItems.length > 0" class="coupon-container">
+    <input 
+      type="text" 
+      [(ngModel)]="couponCode" 
+      placeholder="Enter coupon code" 
+      class="coupon-input"
+      [readonly]="couponApplied" />
+    <button 
+      (click)="applyCoupon()" 
+      class="apply-coupon-btn" 
+      [disabled]="couponApplied">
+      Apply Coupon
+    </button>
 
-  <!-- Afișează suma economisită dacă cuponul este aplicat -->
-  <div *ngIf="couponApplied">
-    <p>You've saved ${{ discountAmount }}</p>
+    <!-- Afișează suma economisită dacă cuponul este aplicat -->
+    <div *ngIf="couponApplied">
+      <p>You've saved ${{ discountAmount.toFixed(2) }}</p>
+    </div>
   </div>
-</div>
 
-<!-- Sumă totală și butoane -->
-<div *ngIf="cartItems.length > 0" class="cart-summary">
-  <p>Total: ${{ getTotal() }}</p>
-  <div *ngIf="couponApplied">
-    <p>New Total: ${{ getTotalWithDiscount() }}</p> <!-- Afișează totalul cu discount aplicat -->
-  </div>
-  <div class="cart-actions">
-    <button class="clear-cart-btn" (click)="clearCart()">Clear Cart</button>
-    <button class="checkout-btn" (click)="onCheckout()">Proceed to Checkout</button>
+  <!-- Sumă totală și butoane -->
+  <div *ngIf="cartItems.length > 0" class="cart-summary">
+    <p>Total: ${{ getTotal() }}</p>
+    <div *ngIf="couponApplied">
+      <p>New Total: ${{ getTotalWithDiscount() }}</p> <!-- Afișează totalul cu discount aplicat -->
+    </div>
+    <div class="cart-actions">
+      <button class="clear-cart-btn" (click)="clearCart()">Clear Cart</button>
+      <button class="checkout-btn" (click)="onCheckout()">Proceed to Checkout</button>
+    </div>
   </div>
 </div>
