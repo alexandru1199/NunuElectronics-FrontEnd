@@ -1,32 +1,58 @@
 <div class="cart-container">
-    <h2>Your Shopping Cart</h2>
-  
-    <div *ngIf="cartItems.length === 0" class="empty-cart-message">
-      <p>Your cart is empty!</p>
-    </div>
-  
-    <div *ngFor="let item of cartItems; let i = index" class="cart-item">
-      <img [src]="item.image" class="cart-item-image" alt="{{ item.productName }}">
-      <div class="cart-item-details">
-        <h3>{{ item.productName }}</h3>
-        <p class="price">${{ item.price }}</p>
-  
-        <div class="quantity-container">
-          <button (click)="decreaseQuantity(i)" [disabled]="item.quantity <= 1">-</button>
-          <span class="quantity">Quantity: {{ item.quantity }}</span>
-          <button (click)="increaseQuantity(i)">+</button>
-        </div>
-  
-        <button class="remove-btn" (click)="removeFromCart(i)">Remove</button>
+  <h2>Your Shopping Cart</h2>
+
+  <!-- Mesajul când coșul este gol -->
+  <div *ngIf="cartItems.length === 0" class="empty-cart-message">
+    <p>Your cart is empty!</p>
+  </div>
+
+  <!-- Afișează articolele din coș -->
+  <div *ngFor="let item of cartItems; let i = index" class="cart-item">
+    <img [src]="item.image" class="cart-item-image" alt="{{ item.productName }}">
+    <div class="cart-item-details">
+      <h3>{{ item.productName }}</h3>
+      <p class="price">${{ item.price }}</p>
+
+      <div class="quantity-container">
+        <button (click)="decreaseQuantity(i)" [disabled]="item.quantity <= 1">-</button>
+        <span class="quantity">Quantity: {{ item.quantity }}</span>
+        <button (click)="increaseQuantity(i)">+</button>
       </div>
-    </div>
-  
-    <div *ngIf="cartItems.length > 0" class="cart-summary">
-      <p>Total: ${{ getTotal() }}</p>
-      <div class="cart-actions">
-        <button class="clear-cart-btn" (click)="clearCart()">Clear Cart</button>
-        <button class="checkout-btn" (click)="onCheckout()">Proceed to Checkout</button>
-      </div>
+
+      <button class="remove-btn" (click)="removeFromCart(i)">Remove</button>
     </div>
   </div>
-  
+
+  <!-- Secțiunea pentru cupon -->
+<!-- Secțiunea pentru cupon -->
+<div *ngIf="cartItems.length > 0" class="coupon-container">
+  <input 
+    type="text" 
+    [(ngModel)]="couponCode" 
+    placeholder="Enter coupon code" 
+    class="coupon-input"
+    [readonly]="couponApplied" />
+  <button 
+    (click)="applyCoupon()" 
+    class="apply-coupon-btn" 
+    [disabled]="couponApplied">
+    Apply Coupon
+  </button>
+
+  <!-- Afișează suma economisită dacă cuponul este aplicat -->
+  <div *ngIf="couponApplied">
+    <p>You've saved ${{ discountAmount }}</p>
+  </div>
+</div>
+
+<!-- Sumă totală și butoane -->
+<div *ngIf="cartItems.length > 0" class="cart-summary">
+  <p>Total: ${{ getTotal() }}</p>
+  <div *ngIf="couponApplied">
+    <p>New Total: ${{ getTotalWithDiscount() }}</p> <!-- Afișează totalul cu discount aplicat -->
+  </div>
+  <div class="cart-actions">
+    <button class="clear-cart-btn" (click)="clearCart()">Clear Cart</button>
+    <button class="checkout-btn" (click)="onCheckout()">Proceed to Checkout</button>
+  </div>
+</div>

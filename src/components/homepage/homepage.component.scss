@@ -171,3 +171,11 @@ section .small-login-btn:hover {
   padding: 40px;
   color: #333;
 }
+/* Elimină scroll orizontal */
+body, html {
+  overflow-x: hidden;
+}
+
+.page-container {
+  overflow-x: hidden;
+}
