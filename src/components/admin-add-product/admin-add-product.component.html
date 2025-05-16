@@ -1,3 +1,4 @@
+<!-- src/components/admin-add-product/admin-add-product.component.html -->
 <h2>Add New Product</h2>
 <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
   <label>Product Name:</label>
@@ -24,9 +25,17 @@
   <label>Detailed Description:</label>
   <textarea formControlName="detailedDescription"></textarea>
 
-  <label>Tag ID:</label>
-  <input type="number" formControlName="tagId" />
+  <!-- Dropdown pentru Tag -->
+ 
 
+  <label>Tag:</label>
+  <select formControlName="tagId">
+    <option *ngFor="let tag of tags" [value]="tag.tagID">{{ tag.tagName }}</option>
+  </select>
+  
+  
+
+  
   <button type="submit" [disabled]="productForm.invalid">
     Add Product
   </button>

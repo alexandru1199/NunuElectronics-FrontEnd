@@ -1,6 +1,3 @@
-
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap">
-
 <div class="page-container">
   <main class="main-content">
     <!-- Hero Section -->
@@ -14,11 +11,11 @@
     <section class="products-section" *ngIf="Products.length > 0" id="products">
       <h3>Our Products</h3>
       <div class="products">
-        <div class="product" *ngFor="let product of Products">
+        <div class="product" *ngFor="let product of Products" (click)="goToProductDetail(product.productID)">
           <img [src]="product.image" [alt]="product.productName">
           <h4>{{ product.productName }}</h4>
           <p>{{ product.description }}</p>
-
+        
           <a *ngIf="isLoggedIn" (click)="addToCart(product)" href="#" class="btn">Buy Now</a>
           <a *ngIf="!isLoggedIn" routerLink="/login" class="btn small-login-btn">
             Loghează-te pentru a adăuga în coș
@@ -34,7 +31,7 @@
 
   <!-- Footer always at the bottom -->
   <footer class="footer">
-    <p>&copy; 2024 Nunu Electronics. All rights reserved.</p>
-    <p><a href="mailto:support@nunu.com">Contact Us</a> | Phone: +1 800 555 6789</p>
+    <p>&copy; 2025 Nunu Electronics. All rights reserved.</p>
+    <p><a href="mailto:nunuelectronics2@gmail.com?subject=Inquiry&body=Hello, I would like to inquire about your products.">Contact Us Email: nunuelectronics2&#64;gmail.com</a> | Phone: +1 800 555 6789</p>
   </footer>
 </div>

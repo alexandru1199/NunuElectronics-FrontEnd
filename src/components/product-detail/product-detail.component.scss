@@ -1,0 +1,163 @@
+/* Product Detail Page */
+.product-detail-container {
+    max-width: 800px;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    margin: 60px auto;
+    font-family: 'Outfit', sans-serif;
+}
+
+.product-detail-container h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #003366;
+    text-align: center;
+}
+
+.product-detail-container .product-img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.product-detail-container p {
+    font-size: 1.1rem;
+    color: #444;
+    margin: 10px 0;
+}
+
+.product-detail-container strong {
+    color: #222;
+}
+
+/* Button Wrapper */
+.button-wrapper {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+/* Common button styles */
+button, .login-message {
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    width: auto;
+    white-space: nowrap;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* Specific style for "Back" button */
+/* Specific style for "Back" button */
+.back-btn {
+    background-color: #007BFF;
+    color: white;
+    border: none; /* Am scos border-ul */
+}
+
+.back-btn:hover {
+    background-color: #0056b3;
+}
+
+
+.add-to-cart-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none; /* Am scos border-ul */
+}
+
+.add-to-cart-btn:hover {
+    background-color: #45a049;
+}
+/* Recommended Products Section */
+.recommended-products {
+    margin-top: 40px;
+}
+
+.recommended-products h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #003366;
+    text-align: center;
+}
+
+.recommended-products-list {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.recommended-product-item {
+    width: 200px;
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    font-family: 'Outfit', sans-serif;
+}
+
+.recommended-product-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.recommended-product-item h4 {
+    font-size: 1.2rem;
+    color: #003366;
+    margin-bottom: 10px;
+}
+
+.recommended-product-item p {
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.recommended-product-item .add-to-cart-btn {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 1rem;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    border: none;
+}
+
+.recommended-product-item .add-to-cart-btn:hover {
+    background-color: #45a049;
+}
+
+/* Stil pentru mesajul "Loghează-te pentru a adăuga în coș" */
+.login-message {
+    background-color: #ff9800;
+    color: white;
+}
+
+.login-message:hover {
+    background-color: #e68900;
+}
+
+/* Dacă vrei să-l faci mai vizibil pe pagină */
+.product-card .login-message {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+}

@@ -75,4 +75,44 @@
       background-color: #45a049;
     }
   }
-  
+  /* Stilizare pentru dropdown */
+/* Stilizarea containerului select */
+.select-wrapper {
+  position: relative;
+  width: 200px;
+}
+
+select {
+  width: 100%;
+  padding: 10px 40px 10px 10px; /* spațiu în stânga pentru săgeată */
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+  appearance: none; /* elimină săgeata implicită */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+}
+
+/* Adăugăm săgeata personalizată */
+.select-wrapper::after {
+  content: '\25BC'; /* simbolul săgeții în jos (unicode) */
+  font-size: 14px;
+  color: #888;
+  position: absolute;
+  right: 10px; /* poziționăm săgeata la dreapta */
+  top: 50%;
+  transform: translateY(-50%); /* centrarea verticală */
+  pointer-events: none; /* săgeata nu interferează cu clicurile pe dropdown */
+}
+
+/* Schimbă culoarea la hover */
+select:hover {
+  border-color: #888;
+}
+
+select:focus {
+  outline: none;
+  border-color: #4a90e2;
+}

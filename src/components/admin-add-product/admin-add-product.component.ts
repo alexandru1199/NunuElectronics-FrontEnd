@@ -1,13 +1,12 @@
-import {
-  Component,
-  OnInit,
-  Inject,
-  PLATFORM_ID
-} from '@angular/core';
+// src/components/admin-add-product/admin-add-product.component.ts
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ProduseService } from '../produse/produse.service';
 import { Product } from '../../models/Product';
+
 import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { TagService } from './tag.service';
+import { Tag } from '../../models/Tag';
 
 @Component({
   selector: 'app-admin-add-product',
@@ -18,15 +17,16 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 })
 export class AdminAddProductComponent implements OnInit {
   isBrowser = false;
+  tags: Tag[] = []; // Variabilă pentru lista de taguri
 
   constructor(
     private fb: FormBuilder,
     private productService: ProduseService,
+    private tagService: TagService, // Injectăm TagService
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
   }
-
   productForm = this.fb.group({
     productName: ['', Validators.required],
     price: [0, [Validators.required, Validators.min(0)]],
@@ -34,12 +34,31 @@ export class AdminAddProductComponent implements OnInit {
     image: ['', [Validators.required]],
     description: ['', Validators.required],
     detailedDescription: ['', Validators.required],
-    tagId: [1, Validators.required]
+    tagId: [null as number | null, Validators.required]  // Modifică aici
   });
-
+  
   ngOnInit(): void {
-    console.log('✅ ngOnInit – suntem în browser! :', this.isBrowser);
+    // Obținem tagurile din TagService la inițializare
+    this.tagService.getTags().subscribe({
+      next: (tags: Tag[]) => {
+        this.tags = tags; // Salvăm tagurile în variabila locală
+        console.log('✅ Tags loaded:', this.tags);
+  
+        // Verificăm dacă există cel puțin un tag înainte de a seta valoarea
+        if (this.tags && this.tags.length > 0) {
+          this.productForm.patchValue({ tagId: this.tags[0].tagID });  // tagID este un number
+        }
+      },
+      error: (err) => {
+        if (this.isBrowser) {
+          alert('Error loading tags: ' + err.error);
+        }
+      }
+    });
   }
+  
+  
+  
 
   onSubmit() {
     if (this.productForm.valid) {
@@ -50,10 +69,10 @@ export class AdminAddProductComponent implements OnInit {
         image: this.productForm.value.image || '',
         description: this.productForm.value.description || '',
         detailedDescription: this.productForm.value.detailedDescription || '',
-        tagId: this.productForm.value.tagId || 1,
+        tagId: this.productForm.value.tagId || 0,  // Acum trimitem numărul tagId
         createdDate: new Date()
       };
-
+  
       this.productService.addProduct(product).subscribe({
         next: (response: any) => {
           if (this.isBrowser) {

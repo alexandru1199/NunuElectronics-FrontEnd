@@ -1,4 +1,5 @@
 export class Product {
+  productID?:number;
   productName?: string;
   price!: number;
   stockQuantity!: number;

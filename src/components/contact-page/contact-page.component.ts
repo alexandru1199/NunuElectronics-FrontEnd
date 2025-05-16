@@ -5,6 +5,7 @@ import { CouponService } from './coupon.service';
 import { EmailPayload } from '../../models/email-payload.model';
 import { CouponCreate } from '../../models/CouponCreate';
 import { TokenService } from '../profile/tokenservice';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -28,7 +29,8 @@ export class ContactPageComponent {
   constructor(
     private emailService: EmailService,
     private couponService: CouponService,
-    private tokenService: TokenService // Injectăm TokenService
+    private tokenService: TokenService,
+    private router: Router // Injectăm TokenService
   ) {}
 
   ngOnInit(): void {
@@ -89,5 +91,6 @@ export class ContactPageComponent {
       },
       error: (err) => alert('Eroare generare cupon: ' + err.message)
     });
+    this.router.navigate(['']);
   }
 }

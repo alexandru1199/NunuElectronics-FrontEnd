@@ -4,7 +4,7 @@ import { Product } from '../../models/Product';
 import { ProduseService } from './produse.service';
 import { CartService } from '../cart/cart.service';
 import { LoginService } from '../login/login.service';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 @Component({
   selector: 'app-produse',
   standalone: true,
@@ -23,7 +23,8 @@ export class ProduseComponent implements OnInit {
   constructor(
     private produseService: ProduseService,
     private cartService: CartService,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -63,5 +64,8 @@ export class ProduseComponent implements OnInit {
     this.cartService.addToCart(product);
     console.log('Produsul a fost adăugat în coș:', product);
     console.log(this.cartService.getCartItems());
+  }
+  goToDetails(id: number): void {
+    this.router.navigate(['/product', id]);
   }
 }

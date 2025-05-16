@@ -12,6 +12,7 @@ import { RegisterComponent } from '../components/register/register.component';
 import { OrderDetailsComponent } from '../components/orderdetails/orderdetails.component';
 import { ProfileComponent } from '../components/profile/profile.component';
 import { AdminAddProductComponent } from '../components/admin-add-product/admin-add-product.component';
+import { ProductDetailComponent } from '../components/product-detail/product-detail.component';
 
 
 export const routes: Routes = [
@@ -27,6 +28,7 @@ export const routes: Routes = [
     {path:'orderdetails',component:OrderDetailsComponent},
     {path:'profile',component:ProfileComponent},
     {path:'addproduct',component: AdminAddProductComponent},
+    { path: 'product/:id', component: ProductDetailComponent },
     {path:'**',component:ErrorPageComponent},
 
 

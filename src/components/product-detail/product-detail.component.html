@@ -1,0 +1,38 @@
+<div *ngIf="product" class="product-detail-container">
+    <h2>{{ product!.productName }}</h2>
+    <img [src]="product!.image" alt="{{ product!.productName }}" class="product-img" />
+    <p><strong>Price:</strong> ${{ product!.price }}</p>
+    <p><strong>Description:</strong> {{ product!.description }}</p>
+    <p><strong>Details:</strong> {{ product!.detailedDescription }}</p>
+    <p><strong>Stock Quantity:</strong> {{ product!.stockQuantity }}</p>
+  
+    <div class="button-wrapper">
+      <button class="back-btn" routerLink="/products">← Înapoi la produse</button>
+      <button *ngIf="isLoggedIn" class="add-to-cart-btn" (click)="addToCart(product!)">Add to Cart</button>
+      <a *ngIf="!isLoggedIn" routerLink="/login" class="login-message">
+        Loghează-te pentru a adăuga în coș
+      </a>
+    </div>
+  </div>
+  
+  <!-- Recomandări de produse -->
+  <div *ngIf="recommendedProducts.length > 0" class="recommended-products">
+    <h3>Recommended Products</h3>
+    <div class="recommended-products-list">
+      <div *ngFor="let recommendedProduct of recommendedProducts" class="recommended-product-item">
+        <img [src]="recommendedProduct.image" alt="{{ recommendedProduct.productName }}" class="recommended-product-img" />
+        <h4>{{ recommendedProduct.productName }}</h4>
+        <p><strong>Price:</strong> ${{ recommendedProduct.price }}</p>
+        <button *ngIf="isLoggedIn" (click)="addToCart(recommendedProduct)" class="add-to-cart-btn">
+          Add to Cart
+        </button>
+        <div *ngIf="!isLoggedIn" class="login-message">
+          Loghează-te pentru a adăuga în coș
+        </div>
+        <a *ngIf="!isLoggedIn" routerLink="/login" class="login-btn">
+          Loghează-te pentru a adăuga în coș
+        </a>
+      </div>
+    </div>
+  </div>
+  

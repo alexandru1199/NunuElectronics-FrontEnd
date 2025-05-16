@@ -38,7 +38,7 @@ export class RegisterComponent {
       };
 
       this.registerService.register(payload).subscribe({
-        next: () => this.router.navigate(['']),
+        next: () => this.router.navigate(['/login']),
         error: () => {
           this.errorMessage = 'Înregistrare eșuată. Verificați datele!';
         }
